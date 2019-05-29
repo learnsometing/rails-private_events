@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user&.save
+      log_in(@user)
       flash[:success] = 'Sign up successful'
       redirect_to @user
     else
@@ -20,23 +21,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def login_page
-    render 'users/login'
-  end
-
-  def login
-    if User.find_by(id: params[:id])
-      session[:id] = params[:id]
-      redirect_to(user_path(User.find(session[:id])))
-    else
-      flash.now[:danger] = 'The user id you entered does not exist.'
-      render 'login'
-    end
-  end
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name)
   end
 end

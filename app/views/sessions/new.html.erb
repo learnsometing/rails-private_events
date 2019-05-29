@@ -1,7 +1,7 @@
 <%= provide(:title, 'Log in')%>
-<h1>Log in with your id</h1>
+<h1>Log in</h1>
 <%= form_tag('/login', method: 'post') do %>
-    <%= label_tag(:id, 'Enter your id:') %>
-    <%= text_field_tag :id %>
+    <%= label_tag(:name, 'Name:') %>
+    <%= text_field_tag :name %>
     <%= submit_tag 'Sign in'%>
 <% end %>
