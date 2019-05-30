@@ -25,5 +25,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_template 'users/show'
     assert_select 'div.alert-success'
+    assert_select 'ul.eventList'
+    assert_select 'li.event'
   end
 end

@@ -1,2 +1,9 @@
 <%= provide(:title, @user.name + "'s profile")%>
-<h1><%= @user.name %></h1>
+<h1><%= @user.name + "'s events" %></h1>
+<div class='container'>
+    <ul class='eventList'>
+        <% if @user.events.any? %>
+            <%= render @events %>
+        <% end %>
+    </ul>
+</div>

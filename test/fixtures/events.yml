@@ -1,0 +1,11 @@
+party_at_toms:
+  location: "Tom's House"
+  date: 'June 13th, 2019'
+  description: "Bring all the beer you can find to TOM'S PLACE"
+  creator: :foobar
+
+red_carpet_gala:
+  location: 'Kennedy Center'
+  date: 'August 24th, 2019'
+  description: "Award reception at the Kennedy Center"
+  creator: :foobar

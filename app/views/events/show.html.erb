@@ -1,0 +1,10 @@
+<%= provide(:title, @event.location)%>
+<h1><%= @event.location %></h1>
+<div class='event_info'>
+    <span>created by: <%= link_to @event.creator.name, @event.creator%></span></br>
+    <span><%= @event.date%></span>
+    <div><%= @event.description%></div>
+</div>
+
+
+
