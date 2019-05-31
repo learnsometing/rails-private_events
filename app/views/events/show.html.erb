@@ -4,6 +4,14 @@
     <span>created by: <%= link_to @event.creator.name, @event.creator%></span></br>
     <span><%= @event.date%></span>
     <div><%= @event.description%></div>
+    <span><%= pluralize(@event.attendees.count, 'attendee')%></span>
+    <% if @event.attendees.any? %>
+        <ol id='attendees'>
+            <% @event.attendees.each do |attendee| %>
+                <li><%= link_to attendee.name, attendee %></li>
+            <% end %>
+        </ol>
+    <% end %>
 </div>
 
 
