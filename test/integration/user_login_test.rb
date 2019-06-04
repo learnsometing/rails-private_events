@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UserLoginTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:foobar)
+    @user = users(:rhaenys)
   end
 
   test 'login with invalid information' do
@@ -25,7 +25,5 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_template 'users/show'
     assert_select 'div.alert-success'
-    assert_select 'ul.eventList'
-    assert_select 'li.event'
   end
 end

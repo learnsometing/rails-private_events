@@ -4,7 +4,7 @@ require 'test_helper'
 
 class EventCreationTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:foobar)
+    @user = users(:rhaenys)
   end
 
   test 'Event should not be created with invalid information' do
@@ -34,5 +34,6 @@ class EventCreationTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_select 'div.alert-success'
     assert_select 'div.event_info'
+    assert_match event.description, response.body
   end
 end

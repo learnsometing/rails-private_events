@@ -1,2 +1,13 @@
-foobar:
-  name:     'foobar'
+rhaenys:
+  name: 'Rhaenys Targaryen'
+
+visenya:
+  name: 'Visenya Targaryen'
+
+aegon:
+  name: 'Aegon I Targaryen'
+
+<% 40.times do |n| %>
+user_<%= n + 3 %>:
+  name: <%= "User#{n} Targaryen" %>
+<% end %>
