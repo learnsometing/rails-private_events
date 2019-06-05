@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'users#new'
+  root 'static_pages#home'
+  get '/home', to: 'static_pages#home'
   get  '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   resources :users, except: %i[new create]
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
   post '/new_event', to: 'events#create'
   resources :events, except: %i[new create index]
   get 'events/show'
-  get '/events',   to: 'events#index'
+  get '/events', to: 'events#index'
 end

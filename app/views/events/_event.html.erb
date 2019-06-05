@@ -1,1 +1,5 @@
-<li class='event'><%= link_to event.location, event%></li>
+<li class='event'>
+    <%= link_to event.location, event%>
+    </br>
+    <h6><%= event.date.strftime("%A, %B %d, %Y at %r") %></h6>
+</li>

@@ -1,0 +1,12 @@
+<%= provide(:title, 'Home') %>
+<div class='center jumbotron jumbotron-fluid bg-transparent'>
+    <div class='container container-fluid'>
+        <% if logged_in? %>
+            <h1>Create an event</h1>
+            <%= render 'events/form' %>
+        <% else %>
+            <h1>Find events that excite you</h1>
+            <%= link_to 'Sign up to start browing events near you today!', signup_path%>
+        <% end %>
+    </div>
+</div>

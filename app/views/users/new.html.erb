@@ -1,8 +1,14 @@
 <%= provide(:title, 'Sign up')%>
-<h1>Sign up</h1>
-<%= form_for(@user, url: signup_path) do |f| %>
-    <%= render 'shared/error_messages',object: f.object%>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit 'Sign up'%>
-<% end %>
+<div class='center jumbotron jumbotron-fluid'>
+    <div class='row'>
+        <h1>Sign up</h1>
+        <div class='col-md-4 col-md-offset-4'>
+            <%= form_for(@user, url: signup_path) do |f| %>
+                <%= render 'shared/error_messages',object: f.object%>
+                <%= f.label :name%>
+                <%= f.text_field :name, class: 'form-control' %></br>
+                <%= f.submit 'Sign up', class: 'btn btn-primary'%>
+            <% end %>
+        </div>
+    </div>
+</div>

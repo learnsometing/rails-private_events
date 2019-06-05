@@ -1,8 +1,14 @@
 <%= provide(:title, 'All Events') %>
 
-<h1>All Events</h1>
-<div class='container'>
-    <ul class='events'>
-        <%= render @events %>
-    </ul>
+<div class='center jumbotron jubotron-fluid bg-transparent'>
+    <div class='container container-fluid'>
+        <h1>All Events</h1>
+        <ol>
+            <%= will_paginate @events%>
+            <div class='events'>
+                <%= render @events %>
+            </div>
+            <%= will_paginate @events%>
+        </ol>
+    </div>
 </div>

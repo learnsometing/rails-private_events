@@ -2,6 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.events .attendees {
+ul, ol {
     list-style: none;
+    padding: 0;
+}
+
+.event_list{
+    list-style: none;
+    padding: 0;
+}
+
+.events{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+.event{
+    position: relative;
+    width: 20em;
+    height: 10em;
+    margin: 1%;
+    border: 1px solid white;
+    border-radius:2px;
+}
+
+.event a{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+}
+
+.event_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.event_info span{
+    padding:0.5em;
+}
+
+#description{
+    display:flex;
+    flex-direction: column;
+    padding: 0.5em;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
 }

@@ -1,0 +1,123 @@
+// @import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*      universal      */
+body {
+    /* Location of the image */
+    background-image: url('/assets/concert_background3.jpg');
+    
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    
+    /* Background image is fixed in the viewport so that it doesn't move when 
+       the content's height is greater than the image's height */
+    background-attachment: fixed;
+    
+    /* This is what makes the background image rescale based
+       on the container's size */
+    background-size: cover;
+    
+    /* Set a background color that will be displayed
+       while the background image is loading */
+    background-color: #464646;
+}
+
+.center {
+    text-align: center;
+    h1 {
+        margin-bottom: 10px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, label, a, p {
+    color: #ffffff;
+}
+
+label {
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+/*      links       */
+
+a {
+    &:hover {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/*      forms       */
+
+.jumbotron {
+    position:relative;
+    overflow:hidden;
+}
+
+.jumbotron .container {
+    position:relative;
+    z-index:2;
+    
+    background:rgba(0, 0, 0, 0.600);
+    padding:2rem;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;
+}
+
+/*      pagination      */
+.page-link {
+ 
+    position: relative;
+   
+    display: block;
+   
+    padding: 0.5rem 0.75rem;
+   
+    margin-left: -1px;
+   
+    line-height: 1.25;
+   
+    color: rgba(0, 0, 0, 0.75);
+   
+    background-color: rgb(255, 255, 255);
+   
+    border: 1px solid #000000;
+   
+  }
+   
+  .page-item.disabled .page-link {
+   
+    color: #868e96;
+   
+    pointer-events: none;
+   
+    cursor: auto;
+   
+    background-color: rgba(0, 0, 0, 0.1);
+   
+    border-color: #000000;
+   
+  }
+   
+  .page-item.active .page-link {
+   
+    z-index: 1;
+   
+    color: #fff;
+   
+    background-color: rgb(0, 0, 0);
+    
+  }
+   
+  .page-link:focus, .page-link:hover {
+   
+    color: #fff;
+   
+    text-decoration: none;
+   
+    background-color: rgb(0, 0, 0);
+     
+  }

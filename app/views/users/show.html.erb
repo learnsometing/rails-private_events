@@ -1,20 +1,24 @@
 <%= provide(:title, @user.name)%>
-<h1><%= @user.name + "'s Profile" %></h1>
-<div class='container'>
-    <div>
-        <h2><%= @user.name %>'s events:</h2>
-        <ul class='event_list'>
-            <% if @events.any? %>
+<div class='center jumbotron jumbotron-fluid bg-transparent'>
+    <div class="container container-fluid">
+        <h1><%= @user.name + "'s Profile" %></h1>
+        <% if @events.any?%>
+            <h2><%= @user.name %>'s events:</h2>
+            <ol class='events'>
+                <%= will_paginate @events %>
                 <%= render @events %>
-            <% end %>
-        </ul>
-    </div>
-    <div>
-        <h2><%= @user.name %> is attending:</h2>
-        <ul class='event_list'>
-            <% if @attended_events.any? %>
-                <%= render @attended_events%>
-            <% end %>
-        </ul>
+                <%= will_paginate @events %>
+            </ol>
+        <% end%>
+        <% if @attended_events.any?%>
+            <h2><%= @user.name %> is attending:</h2>
+            <ol class='events'>
+                <% if @attended_events.any? %>
+                    <%= will_paginate @events %>
+                    <%= render @attended_events%>
+                    <%= will_paginate @events %>
+                <% end %>
+            </ol>
+        <% end %>
     </div>
 </div>

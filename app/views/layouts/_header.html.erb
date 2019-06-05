@@ -1,0 +1,16 @@
+<header >
+    <nav class='navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-dark'>
+        <div class='navbar-header'>
+            <%= link_to 'Site Name', root_url, class: 'navbar-brand' %>
+        </div>
+        <div class='navbar-nav'>
+            <%= link_to 'Browse Events', events_url, class:'nav-item nav-link' %>
+            <% if logged_in? %>
+                <%= link_to 'Profile', current_user, class: 'nav-item nav-link' %>
+                <%= link_to 'Log out', '#', class: 'nav-item nav-link' %>
+            <% else %>
+                <%= link_to 'Log in', login_path, class: 'nav-item nav-link' %>
+            <% end %>
+        </div>
+    </nav>
+</header>

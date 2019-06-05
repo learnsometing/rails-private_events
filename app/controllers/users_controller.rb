@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @events = @user.events
+    @events = @user.events.paginate(page: params[:page])
     @attended_events = @user.attended_events
   end
 

@@ -2,10 +2,12 @@
 <html>
   <head>
     <title><%= yield(:title)%></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= render 'layouts/rails_default' %>
   </head>
   <body>
-    <div>
+    <%= render 'layouts/header' %>
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}")%>
     <% end %>

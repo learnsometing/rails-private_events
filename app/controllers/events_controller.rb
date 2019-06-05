@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.paginate(page: params[:page])
   end
 
   private
