@@ -10,14 +10,20 @@
                 <%= will_paginate @events %>
             </ol>
         <% end%>
-        <% if @attended_events.any?%>
-            <h2><%= @user.name %> is attending:</h2>
+        <% if @prev_events.any?%>
+            <h2><%= @user.name %> has attended:</h2>
             <ol class='events'>
-                <% if @attended_events.any? %>
-                    <%= will_paginate @events %>
-                    <%= render @attended_events%>
-                    <%= will_paginate @events %>
-                <% end %>
+                <%= will_paginate @prev_events %>
+                <%= render @prev_events%>
+                <%= will_paginate @prev_events %>
+            </ol>
+        <% end%>
+        <% if @upcoming.any?%>
+            <h2><%= @user.name%> is attending:</h2>
+            <ol class='events'>
+                <%= will_paginate @upcoming %>
+                <%= render @upcoming%>
+                <%= will_paginate @upcoming %>
             </ol>
         <% end %>
     </div>
