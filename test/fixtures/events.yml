@@ -9,7 +9,7 @@ red_carpet_gala:
   date: 'August 24th, 2019'
   description: "Award reception at the Kennedy Center"
   creator: rhaenys
-
+  
 <% 15.times do |n| %>
 event_<%= n %>:
   location: <%= Faker::Address.unique.street_address %>

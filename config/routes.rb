@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, except: %i[new create]
   get  '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get 'sessions_controller/destroy'
+  delete '/logout', to: 'sessions#destroy'
   get '/new_event', to: 'events#new'
   post '/new_event', to: 'events#create'
   resources :events, except: %i[new create index]

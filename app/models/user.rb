@@ -6,4 +6,12 @@ class User < ApplicationRecord
   has_many :attended_events, through: :rsvps, source: :attended_event
 
   validates :name, presence: true, length: { minimum: 6, maximum: 140 }
+
+  def previous_events
+    attended_events.where('date < :current_date', current_date: DateTime.now)
+  end
+
+  def upcoming_events
+    attended_events.where('date >= :current_date', current_date: DateTime.now)
+  end
 end
