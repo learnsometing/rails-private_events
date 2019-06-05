@@ -22,7 +22,13 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.paginate(page: params[:page])
+    if params[:events] == nil || params[:events][:type] == 'upcoming'
+      @events = Event.upcoming.paginate(page: params[:page])
+      @header = 'Upcoming Events'
+    else
+      @events = Event.prev.paginate(page: params[:page])
+      @header = 'Previous Events'
+    end
   end
 
   private
