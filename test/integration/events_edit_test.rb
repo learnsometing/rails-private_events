@@ -15,8 +15,6 @@ class EventsEditTest < ActionDispatch::IntegrationTest
                                                            @attendee2.id]})
     assert_redirected_to @event
     follow_redirect!
-    assert_select  'ol.attendees'
-    assert_select  'ol.attendees li', 2
     @event.reload
     assert_equal @event.rsvps.count, 2
   end
