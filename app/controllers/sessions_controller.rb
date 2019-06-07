@@ -3,6 +3,7 @@
 class SessionsController < ApplicationController
   def new; end
 
+  # Log a user in.
   def create
     @user = User.find_by(name: params[:session][:name])
 
@@ -16,6 +17,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # Log a user out.
   def destroy
     log_out if logged_in?
     redirect_to root_url

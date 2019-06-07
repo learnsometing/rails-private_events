@@ -5,13 +5,15 @@ Rails.application.routes.draw do
   get '/home', to: 'static_pages#home'
   get  '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  resources :users, except: %i[new create]
+  get '/invitations', to: 'users#check_invites'
+  patch '/invitations', to: 'users#respond_to_invites'
+  resources :users, except: %i[new create index]
   get  '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/new_event', to: 'events#new'
-  post '/new_event', to: 'events#create'
-  resources :events, except: %i[new create index]
-  get 'events/show'
+  resources :events, only: %i[create show]
   get '/events', to: 'events#index'
+  get '/invite', to: 'events#edit'
+  patch '/invite', to: 'events#update'
+  resources :rsvps, only: %i[edit update]
 end

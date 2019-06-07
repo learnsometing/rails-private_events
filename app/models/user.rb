@@ -7,10 +7,14 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 6, maximum: 140 }
 
+  # Get the events associated with a user that occured prior to the current
+  # moment in time.
   def previous_events
     attended_events.where('date < :current_date', current_date: DateTime.now)
   end
 
+  # Get the events associated with a user that will occuer after the current
+  # moment in time.
   def upcoming_events
     attended_events.where('date >= :current_date', current_date: DateTime.now)
   end

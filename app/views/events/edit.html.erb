@@ -1,0 +1,16 @@
+<%= provide(:title, 'Invite Users')%>
+
+<h1>Invite Users</h1>
+<%= form_for @event, url: invite_path do |f| %>
+    <%= f.collection_check_boxes :attendee_ids, @users, :id, :name do |b|%>
+        <div class='container'>
+            <div class='row'>
+                <%= b.label class: 'col-md-6'%>
+                <div class='form-check col-md-6'>
+                    <%= b.check_box class: 'form-check-input '%>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <%= f.submit :Invite, class: 'btn btn-dark'%>
+<% end %>

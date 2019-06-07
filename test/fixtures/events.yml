@@ -1,19 +1,19 @@
 party_at_toms:
   location: "Tom's House"
-  date: <%= Faker::Date.forward(90, :evening) %>
+  date: <%= Faker::Time.forward(90, :evening) %>
   description: "Bring all the beer you can find to TOM'S PLACE"
   creator: rhaenys
 
 red_carpet_gala:
   location: 'Kennedy Center'
-  date: <%= Faker::Date.forward(90, :evening) %>
+  date: <%= Faker::Time.forward(90, :evening) %>
   description: "Award reception at the Kennedy Center"
   creator: rhaenys
 
 <% 15.times do |n| %>
 event_<%= n %>:
   location: <%= Faker::Address.unique.street_address %>
-  date: <%= Faker::Date.forward(90, :evening) %>
+  date: <%= Faker::Time.forward(90, :evening) %>
   description: <%= Faker::Lorem.unique.paragraph %>
   creator: rhaenys
 <% end %>
@@ -21,7 +21,7 @@ event_<%= n %>:
 <% 15.times do |n| %>
 event_<%= n + 15%>:
   location: <%= Faker::Address.unique.street_address %>
-  date: <%= Faker::Date.backward(90, :evening) %>
+  date: <%= Faker::Time.backward(90, :evening) %>
   description: <%= Faker::Lorem.unique.paragraph %>
   creator: rhaenys
 <% end %>

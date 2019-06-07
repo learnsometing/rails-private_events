@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: %i[check_invites]
   def new
     @user = User.new
   end
@@ -22,6 +23,12 @@ class UsersController < ApplicationController
     @events = @user.events.paginate(page: params[:page])
     @prev_events = @user.previous_events.paginate(page: params[:page])
     @upcoming = @user.upcoming_events.paginate(page: params[:page])
+  end
+
+  # Allows a user to see all of the invitations they have not responded to.
+  def check_invites
+    @invites = current_user.rsvps.where('accepted == ? AND declined == ?', false, false)
+    render 'users/invites', invites: @invites
   end
 
   private

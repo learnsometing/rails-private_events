@@ -1,7 +1,3 @@
 <%= provide(:title, 'All Events') %>
-<div class='center jumbotron jubotron-fluid bg-transparent'>
-    <div class='container container-fluid'>
-        <h1><%= @header %></h1>
-        <%= render 'event_list', events: @events%>
-    </div>
-</div>
+<h1><%= @header %></h1>
+<%= render 'event_list', events: @events%>

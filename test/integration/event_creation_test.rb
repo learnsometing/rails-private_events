@@ -9,24 +9,24 @@ class EventCreationTest < ActionDispatch::IntegrationTest
 
   test 'Event should not be created with invalid information' do
     log_in_as(@user)
-    get new_event_path
-    assert_template 'events/new'
+    get root_path
+    assert_template 'static_pages/home'
     assert_no_difference 'Event.count' do
-      post new_event_path, params: { event: { date: '',
+      post events_path(params: { event: { date: '',
                                              location: '',
-                                             description: '' } }
+                                             description: '' } })
     end
-    assert_template 'events/new'
+    assert_template 'static_pages/home'
     assert_select 'div#error_explanation'
   end
 
   test 'Event should be created with valid information' do
     log_in_as(@user)
-    get new_event_path
+    get root_path
     assert_difference 'Event.count', 1 do
-      post new_event_path, params: { event: {date: 'July 4th, 2019',
+      post events_path(params: { event: {date: 'July 4th, 2019',
                                             location: "Tom's House",
-                                            description: 'Gonna get lit.'}}
+                                            description: 'Gonna get lit.'}})
     end
     event = assigns(:event)
     assert_redirected_to event

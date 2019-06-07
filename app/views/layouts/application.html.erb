@@ -8,10 +8,16 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}")%>
-    <% end %>
-    <%= yield %>
+    <div class='center container container-fluid'>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}")%>
+      <% end %>
+    </div >
+    <div class='jumbotron jumbotron-fluid bg-transparent'>
+      <div class='center container container-fluid'>
+        <%= yield %>
+      </div>  
+    </div>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
