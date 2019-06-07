@@ -12,10 +12,18 @@
     <% if current_user == @event.creator%>
         <%= link_to 'Invite your friends!', invite_path(id: @event.id)%></br>
     <% end%>
-    <span><%= pluralize(@event.attendees.count, 'attendee')%>:</span>
-    <% if @event.attendees.any? %>
+    <span><%= pluralize(@going.count, 'attendee')%>:</span></br>
+    <% if @going.any? %>
         <ol class='attendees'>
-            <% @event.attendees.each do |attendee| %>
+            <% @going.each do |attendee| %>
+                <li><%= link_to attendee.name, attendee %></li>
+            <% end %>
+        </ol>
+    <% end %>
+    <span><%= pluralize(@not_going.count, 'skipper')%>:</span>
+    <% if @not_going.any? %>
+        <ol class='attendees'>
+            <% @not_going.each do |attendee| %>
                 <li><%= link_to attendee.name, attendee %></li>
             <% end %>
         </ol>
