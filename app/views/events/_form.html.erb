@@ -9,7 +9,7 @@
     <div class='form-row'>
         <div class='form-group col-md-12'>
             <%= f.label :date %></br>
-            <%= f.datetime_select(:date, {}, {class: 'custom-select col-md-2'})%>
+            <%= f.datetime_select(:date, {start_year:Date.today.year}, {class: 'custom-select col-md-2'})%>
         </div>
     </div>
     <div class='form-row'>

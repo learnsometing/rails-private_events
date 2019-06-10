@@ -12,7 +12,7 @@ class EventCreationTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template 'static_pages/home'
     assert_no_difference 'Event.count' do
-      post events_path(params: { event: { date: '',
+      post events_path(params: { event: { date: 1.days.ago,
                                              location: '',
                                              description: '' } })
     end

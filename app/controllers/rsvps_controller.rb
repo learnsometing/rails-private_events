@@ -6,6 +6,8 @@ class RsvpsController < ApplicationController
   def edit
     @rsvp = Rsvp.find(params[:id])
     @event = Event.find(@rsvp.attended_event_id)
+    @going = @event.attendees.where('accepted == ? AND declined == ?', true, false)
+    @not_going = @event.attendees.where('accepted == ? AND declined == ?', false, true) 
   end
 
   # Update the status of the invitation to either accepted or declined. The edit
@@ -16,6 +18,7 @@ class RsvpsController < ApplicationController
 
     if accepted?
       @rsvp.update_column(:accepted, true)
+      # @event.update_attribute()
       flash[:success] = 'You are now attending ' + @event.location + '.'
     else
       @rsvp.update_column(:declined, true)

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  include ApplicationHelper
   before_action :logged_in_user, only: %i[check_invites]
+  SQL = 'INNER JOIN events ON events.id = rsvps.attended_event_id'
   def new
     @user = User.new
   end
@@ -27,13 +29,25 @@ class UsersController < ApplicationController
 
   # Allows a user to see all of the invitations they have not responded to.
   def check_invites
-    @invites = current_user.rsvps.where({ accepted: false, declined: false })
-    render 'users/invites', invites: @invites
+    @rsvps = current_user.rsvps.where(unopened).joins(SQL).order(date: :asc)
+    render 'users/rsvps'
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name)
+  end
+
+  def unopened
+    { accepted: false, declined: false }
+  end
+
+  def accepted
+    { accepted: true, declined: false }
+  end
+
+  def declined
+    { accepted: true, declined: false }
   end
 end
