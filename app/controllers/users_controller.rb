@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   # Allows a user to see all of the invitations they have not responded to.
   def check_invites
-    @invites = current_user.rsvps.where('accepted == ? AND declined == ?', false, false)
+    @invites = current_user.rsvps.where({ accepted: false, declined: false })
     render 'users/invites', invites: @invites
   end
 
