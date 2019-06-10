@@ -11,18 +11,14 @@ class User < ApplicationRecord
   # Get the events associated with a user that occured prior to the current
   # moment in time.
   def previous_events
-    attended_events.where('date < :current_date AND
-                          accepted == :accepted',
-                          current_date: DateTime.now,
-                          accepted: true)
+    attended_events.where('date < :current_date AND accepted',
+                          current_date: DateTime.now)
   end
 
   # Get the events associated with a user that will occuer after the current
   # moment in time.
   def upcoming_events
-    attended_events.where('date >= :current_date AND
-                          accepted == :accepted',
-                          current_date: DateTime.now,
-                          accepted: true)
+    attended_events.where('date >= :current_date AND accepted',
+                          current_date: DateTime.now)
   end
 end
