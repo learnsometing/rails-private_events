@@ -18,7 +18,6 @@ class RsvpsController < ApplicationController
 
     if accepted?
       @rsvp.update_column(:accepted, true)
-      # @event.update_attribute()
       flash[:success] = 'You are now attending ' + @event.location + '.'
     else
       @rsvp.update_column(:declined, true)
