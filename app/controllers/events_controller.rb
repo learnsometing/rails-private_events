@@ -18,9 +18,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @going = @event.attendees.where('accepted == ? AND declined == ?', true, false)
-    @not_going = @event.attendees.where('accepted == ? AND declined == ?', false, true)
-  end
+    @going = @event.attendees.where('accepted AND NOT declined')
+    @not_going = @event.attendees.where('NOT accepted AND declined')
+    end
 
   # Uses the index template to show either upcoming or previous events.
   # The default is to show upcoming events (most people will be 

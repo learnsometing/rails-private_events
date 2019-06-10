@@ -6,8 +6,8 @@ class RsvpsController < ApplicationController
   def edit
     @rsvp = Rsvp.find(params[:id])
     @event = Event.find(@rsvp.attended_event_id)
-    @going = @event.attendees.where('accepted == ? AND declined == ?', true, false)
-    @not_going = @event.attendees.where('accepted == ? AND declined == ?', false, true) 
+    @going = @event.attendees.where('accepted AND NOT declined')
+    @not_going = @event.attendees.where('NOT accepted AND declined')
   end
 
   # Update the status of the invitation to either accepted or declined. The edit
